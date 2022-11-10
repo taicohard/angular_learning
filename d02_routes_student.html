@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="/javascript/angular.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+
+    <h2>Student List</h2>
+    <hr>
+
+    <!-- main content -->
+    <div ng-controller="myLIST" ng-app="myapp">
+
+        <p>Today is {{today | date:'fullDate'}}</p>
+
+        <p>
+            <input type="text" name="sname" id="sname" placeholder="input student name" ng-model="sname">
+        </p>
+
+        <h4>List of Students</h4>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Sr.No</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>year of birth</th>
+                    <th>age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="sv in ds | filter:sname">
+                    <td>{{$index+1}}</td>
+                    <td>{{sv.id | lowercase}}</td>
+                    <td>{{sv.name | uppercase}}</td>
+                    <td>{{sv.yob}}</td>
+                    <td>{{year - sv.yob}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let app = angular.module("myapp", []);
+        app.controller("myLIST", function ($scope) {
+            $scope.today = new Date();
+            $scope.year = $scope.today.getFullYear();
+
+            //mang json, chua ds sinh vien
+            $scope.ds = [
+                { 'id': 'sv01', 'name': 'bui minh hai', 'yob': 1996 },
+                { 'id': 'sv02', 'name': 'le tan kha', 'yob': 2004 },
+                { 'id': 'sv03', 'name': 'danh vo tuan khanh', 'yob': 2003 },
+                { 'id': 'sv04', 'name': 'tran hao duy tu', 'yob': 2004 },
+                { 'id': 'sv05', 'name': 'le duy nien', 'yob': 2006 },
+                { 'id': 'sv06', 'name': 'nguyen quoc kiet', 'yob': 2004 },
+                { 'id': 'sv07', 'name': 'duong tuyet mai', 'yob': 2004 },
+                { 'id': 'sv08', 'name': 'pham thi my thuy', 'yob': 2004 },
+            ];
+
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>angularjs</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="/javascript/angular.min.js"></script>
+    <script src="/javascript/angular-route.min.js"></script>
+
+    <style>
+        .t1:hover {
+            background-color: aqua;
+
+        }
+    </style>
+</head>
+
+<body ng-app="myapp">
+    <div container-fluid>
+        <table class="table" style="border: solid black ;text-align: center;">
+            <thead>
+                <tr>
+                    <th class="t1" scope="col"><a href="#/!"> Home</a></th>
+                    <th class="t1" scope="col"><a href="#!food"> Food</a></th>
+                    <th class="t1" scope="col"><a href="#!newfood"> Add new food</a></th>
+                    <th class="t1" scope="col">About</th>
+                </tr>
+                <div class="row">
+                    <div class="col-md-8">
+                        <!-- khoi hien thi cac trang muon link -->
+                        <div ng-view></div>
+                    </div>
+            </thead>
+        </table>
+    </div>
+    <script> let app = angular.module("myapp", ["ngRoute"]);
+
+        app.config(function ($routeProvider) {
+            $routeProvider
+                // .when("/", {
+                //     templateUrl: "pretest.html"
+                // })
+                .when("/food", {
+                    templateUrl: "pretest.html"
+                })
+                // .when("/forum", {
+                //     templateUrl: "d02_routes_forum.html"
+                // })
+                .when("/newfood", {
+                    templateUrl: "newfood.html"
+                });
+        });
+    </script>
+</body>
+
+</html>

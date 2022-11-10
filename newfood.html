@@ -1,0 +1,40 @@
+<script src="/javascript/angular.min.js"></script>
+<style>
+    span {
+        color: red;
+    }
+</style>
+
+<!-- <body ng-app="myapp" ng-controller="CTL"> -->
+<h1 style="margin-left: 40%;">Add Form</h1>
+<form style="margin-left: 40%;" name="myForm" ng-app="myapp" ng-controller="CTL">
+    <div>
+        <label for="">ID</label> <br>
+        <input type="text" name="id" ng-model="id" required>
+        <span ng-show="myForm.id.$invalid">The id is required.</span>
+    </div>
+    <div style=" margin-top: 1%;">
+        <label for="">Name</label><br>
+        <input type="text" name="name" ng-model="name" required>
+        <span ng-show="  myForm.name.$invalid"> The name is required.</span>
+    </div>
+    <div style=" margin-top: 1%;">
+        <label for="">Price</label><br>
+        <input type="number" name="price" ng-model="price" required>
+        <span ng-show="  myForm.price.$invalid">The price is required.</span>
+    </div>
+    <div>
+        <button style="margin-top: 10px;" ng-disabled="myForm.$invalid" ng-click="save()">Add</button>
+    </div>
+</form>
+<script>
+    let app = angular.module("myapp", []);
+    app.controller("CTL", function ($scope) {
+        $scope.save = function () {
+            window.alert("Add new food successfully!")
+        }
+
+
+    })
+</script>
+<!-- </body> -->

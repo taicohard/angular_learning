@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>angularjs</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="/javascript/angular-route.min.js"></script>
+    <script src="/javascript/angular.min.js"></script>
+
+    <style>
+        .t1:hover {
+            background-color: aqua;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div name="Form">
+        <h1 style="margin-left: 40%;">Add Form</h1>
+        <form style="margin-left: 40%; transform: translateY(100px);" name="myForm">
+            <div>
+                <label for="">ID</label> <br>
+                <input type="text" name="id" ng-model="id" required>
+                <span ng-show="myForm.id.$invalid">The id is required.</span>
+            </div>
+            <div style=" margin-top: 1%;">
+                <label for="">Name</label><br>
+                <input type="text" name="name" ng-model="name" required>
+                <span ng-show="  myForm.name.$invalid"> The name is required.</span>
+            </div>
+            <div style=" margin-top: 1%;">
+                <label for="">Price</label><br>
+                <input type="number" name="price" ng-model="price" required>
+                <span ng-show="  myForm.price.$invalid">The price is required.</span>
+            </div> -->
+    <!-- <div>
+                <button style="margin-top: 10px;" ng-disabled="myForm.$invalid">Add</button>
+            </div>
+        </form>
+    </div> -->
+
+
+    <table class="table" style="border: solid black ;text-align: center;">
+        <thead>
+            <tr>
+
+                <th class="t1" scope="col"> <a href="#/!">Home</a></th>
+
+
+                <th class="t1" scope="col"> <a href="#!food"> Food</a></th>
+
+
+                <th class="t1" scope="col"><a href="#!newfood"> Add new food</a></th>
+
+
+                <th class="t1" scope="col"> About</th>
+
+            </tr>
+        </thead>
+
+
+
+        <table class="table table-bordered" ng-app="myapp" ng-controller="CRL"
+            style="width: 20%; margin-left: 30%;transform:translateY(5%);">
+            <thead>
+                <tr>
+                    <th style="width: 1%;">ID</th>
+                    <th style="width:9% ;">Name</th>
+                    <th style="width:7% ;">Price</th>
+                </tr>
+            </thead>
+            <b> <label style="font-size: 20px; margin-left: 30%;">Menu</label></b>
+            <tbody ng-repeat="ta in list">
+                <tr>
+                    <td>{{ta.ID}}</th>
+                    <td>{{ta.Name|uppercase}}</th>
+                    <td>{{ta.Price}}</th>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            let app = angular.module("myAPP", ["ngRoute"]);
+
+            app.config(function ($routeProvider) {
+                $routeProvider
+                    .when("/", {
+                        templateUrl: "pretest.html"
+                    })
+                    .when("/food", {
+                        templateUrl: "pretest.html"
+                    })
+                    .when("/newfood", {
+                        templateUrl: "newfood.html"
+                    })
+
+            });
+
+
+            // app.controller("CRL", function ($scope) {
+            //     $scope.list = [
+            //         { 'ID': 'F01', 'Name': 'Pho', 'Price': '30000' },
+            //         { 'ID': 'F02', 'Name': 'Bun Bo Hue', 'Price': '35000' },
+            //         { 'ID': 'F03', 'Name': 'My Quang', 'Price': '30000' },
+            //         { 'ID': 'F04', 'Name': 'Banh Mi', 'Price': '10000' },
+
+            //     ]
+            // })
+        </script>
+</body>
+
+</html>
